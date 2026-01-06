@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daniel Dominguez | Investigador de Audio & Artista Sonoro. Explorando la intersección entre el paisaje sonoro y la Inteligencia Artificial.">
+    <title>Daniel Dominguez | Sonic Architect & AI Researcher</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* RESET BÁSICO Y VARIABLES DE ESTILO */
+        :root {
+            --bg-color: #141414; /* Tu negro corporativo */
+            --text-main: #F1F1F1; /* Blanco suave */
+            --text-muted: #888888;
+            --accent: #D9052E; /* Tu rojo de marca (usado muy sutilmente) */
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* CLASES DE UTILIDAD */
+        .container {
+            max-width: 900px; /* Ancho contenido para lectura cómoda */
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+        }
+
+        a { color: inherit; text-decoration: none; transition: 0.3s; }
+        a:hover { color: var(--accent); }
+
+        /* ESPACIADO */
+        section { padding: 6rem 0; }
+    </style>
+</head>
+<body>
+
+    <header style="height: 90vh; display: flex; flex-direction: column; justify-content: center;">
+        <div class="container">
+            <p style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Portafolio / Investigación</p>
+            <h1 style="font-size: 4rem; margin: 1rem 0; line-height: 1.1;">
+                Daniel Dominguez
+            </h1>
+            <h2 style="font-size: 1.5rem; color: var(--text-muted); font-family: var(--font-sans); font-weight: 300;">
+                Investigador de Audio & Artista Sonoro <br>
+                <span style="color: var(--text-main)">IA & Creatividad Computacional</span>
+            </h2>
+            <div style="margin-top: 3rem;">
+                <a href="#works" style="border-bottom: 1px solid var(--text-main); padding-bottom: 5px;">Ver Proyectos Seleccionados ↓</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="works">
+        <div class="container">
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;">01 — Selected Works</h3>
+            
+            <article style="margin-bottom: 4rem;">
+                <div style="background: #222; width: 100%; height: 300px; margin-bottom: 1rem;"></div> 
+                <h4 style="font-size: 1.8rem; margin: 0;">Nombre del Proyecto 1</h4>
+                <p style="color: var(--text-muted);">Rol: Lead Sound Designer</p>
+            </article>
+
+            <article style="margin-bottom: 4rem;">
+                <div style="background: #222; width: 100%; height: 300px; margin-bottom: 1rem;"></div>
+                <h4 style="font-size: 1.8rem; margin: 0;">Nombre del Proyecto 2</h4>
+                <p style="color: var(--text-muted);">Rol: Post-production Mixer</p>
+            </article>
+
+            <article>
+                <div style="background: #222; width: 100%; height: 300px; margin-bottom: 1rem;"></div>
+                <h4 style="font-size: 1.8rem; margin: 0;">Nombre del Proyecto 3</h4>
+                <p style="color: var(--text-muted);">Rol: Recording Engineer</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="research" style="background-color: #1a1a1a;">
+        <div class="container">
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;">02 — Research Lab</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <div>
+                    <h4 style="font-size: 1.5rem; margin-top: 0;">Polígono Splitter</h4>
+                    <p style="color: #ccc; font-weight: 300;">
+                        Herramienta de separación de fuentes sonoras basada en Deep Learning. Implementación de redes neuronales para optimización de flujos de trabajo en post-producción.
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Tech Stack: Python, Electron, PyTorch.</p>
+                    <br>
+                    <a href="TU_LINK_DE_GITHUB" target="_blank" style="font-size: 0.9rem; border: 1px solid var(--text-muted); padding: 10px 20px; border-radius: 50px;">View on GitHub ↗</a>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 1.5rem; margin-top: 0;">Diablada Pillareña Archive</h4>
+                    <p style="color: #ccc; font-weight: 300;">
+                        Investigación y captura de patrimonio sonoro para la creación de nuevos instrumentos virtuales y preservación digital.
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Status: En desarrollo / Field Recording.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2rem;">03 — About</h3>
+            <p style="font-size: 1.5rem; font-family: var(--font-serif); max-width: 700px;">
+                Profesor de Educación Superior. Ayudo a formar a la próxima generación de artistas sonoros mientras investigo cómo la tecnología redefinirá nuestra industria.
+            </p>
+            
+            <div style="margin-top: 4rem; border-top: 1px solid #333; padding-top: 2rem; display: flex; gap: 2rem; font-size: 0.9rem;">
+                <a href="mailto:hola@danieldominguez.audio">Email</a>
+                <a href="#">LinkedIn</a>
+                <a href="TU_GITHUB_PROFILE">GitHub</a>
+                <span style="margin-left: auto; color: #444;">© 2026 Daniel Dominguez</span>
+            </div>
+            <div style="margin-top: 1rem; text-align: right; font-size: 0.7rem; color: #333;">
+                <a href="LINK_AL_REPO_DE_ESTA_WEB">Source Code of this site</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
