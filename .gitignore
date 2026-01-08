@@ -1,1 +1,12 @@
+# Archivos de Sistema Operativo (Basura)
+.DS_Store
 Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Archivos de configuración de editores (Opcional, pero recomendado)
+.vscode/
+.idea/
+
+# Logs y archivos temporales
+*.log
