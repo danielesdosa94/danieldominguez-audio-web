@@ -10,3 +10,5 @@ $RECYCLE.BIN/
 
 # Logs y archivos temporales
 *.log
+
+.zip

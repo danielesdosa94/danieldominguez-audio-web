@@ -75,7 +75,23 @@
 
         section { padding: 6rem 0; }
 
-        /* --- NAVEGACIÓN SUPERIOR --- */
+        /* --- NUEVO: CLASE PARA EL GRID DE RESEARCH --- */
+        .research-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        /* --- HEADER & NAVEGACIÓN (Desktop) --- */
+        header {
+            height: 90vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            position: relative; 
+            padding-top: 5rem; 
+        }
+
         .top-nav {
             position: absolute;
             top: 2rem;
@@ -96,18 +112,149 @@
             color: var(--accent);
         }
 
+        /* --- ESTILOS MENÚ HAMBURGUESA (Móvil) --- */
+        .hamburger {
+            display: none; 
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            z-index: 2000;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            margin: 5px 0;
+            background-color: var(--text-main);
+            transition: 0.4s;
+        }
+
+        /* --- NUEVO: ANIMACIÓN HAMBURGUESA A "X" --- */
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Menú desplegable móvil (Overlay) */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 20, 20, 0.98);
+            z-index: 1500;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 8rem; 
+            padding-left: 3rem; 
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none; 
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            font-family: var(--font-sans);
+            font-size: 1.2rem; 
+            font-weight: 500;
+            color: var(--text-main);
+            text-transform: none;
+        }
+
+        /* --- MEDIA QUERY MÓVIL (Ajustes Críticos) --- */
         @media (max-width: 768px) {
-            .top-nav {
-                position: relative;
-                top: auto; right: auto;
-                justify-content: center;
-                margin-top: 2rem;
-                width: 100%;
-                margin-bottom: -4rem;
+            header { 
+                justify-content: flex-start; 
+                padding-top: 12vh; 
+                height: auto; 
+                min-height: auto; 
+                padding-bottom: 2rem; 
             }
-            header { justify-content: center; }
-            h1 { font-size: 3rem; }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .top-nav { display: none; } 
+            .hamburger { display: block; }
+
+            h1 { font-size: 3rem; margin-top: 0; margin-bottom: 0.5rem; }
             h2 { font-size: 1.3rem; }
+            
+            #wave-container {
+                height: 150px !important; 
+                /* AJUSTE 1: Bajar más la onda (más margen arriba) */
+                margin-top: 5rem; 
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                gap: 0.1rem; 
+                align-items: flex-start;
+                /* AJUSTE 2: Subir más los botones (más margen negativo) */
+                margin-top: -4rem; 
+            }
+
+            .btn-hero-reel {
+                order: 1; 
+                width: 100%; 
+                justify-content: center;
+                margin-bottom: -0.9rem;
+            }
+            
+            .link-scroll {
+                order: 2; 
+                align-self: center; 
+            }
+
+            .project-img-container {
+                height: auto !important; 
+                aspect-ratio: 16/9; 
+            }
+
+            .project-img {
+                height: auto; 
+            }
+
+            .project-img-container::after {
+                display: none;
+            }
+
+            .btn-studio {
+                color: var(--text-main) !important;
+                border-bottom: 1px solid var(--text-main) !important;
+                padding-bottom: 2px; 
+            }
+
+            .btn-studio:hover {
+                color: var(--accent) !important;
+                border-bottom-color: var(--accent) !important;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
         }
 
         /* --- ANIMACIÓN ONDA --- */
@@ -162,19 +309,11 @@
             transform: translateY(-2px);
         }
 
-        @media (max-width: 600px) {
-            .hero-actions {
-                flex-direction: column;
-                gap: 1.5rem;
-                align-items: flex-start;
-            }
-        }
-
         /* --- VENTANA MODAL --- */
         .modal {
             display: none; 
             position: fixed; 
-            z-index: 1000; 
+            z-index: 3000; 
             left: 0;
             top: 0;
             width: 100%; 
@@ -188,7 +327,7 @@
 
         .modal-content {
             position: relative;
-            width: 80%;
+            width: 90%;
             max-width: 900px;
             aspect-ratio: 16/9;
             background-color: #000;
@@ -266,8 +405,8 @@
         }
 
         .btn-studio:hover {
-            color: var(--text-main);
-            border-bottom-color: var(--text-main);
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
 
         /* --- LINK POLIGONO HOVER --- */
@@ -325,8 +464,19 @@
 </head>
 <body>
 
-    <header style="height: 90vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding-top: 5rem;">
-        
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="https://poligonostudio.com" target="_blank">Polígono Studio ↗</a>
+        <a href="mailto:danielesdosa@gmail.com">Contacto</a>
+        <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank">LinkedIn</a>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <header>
         <nav class="top-nav">
             <a href="https://poligonostudio.com" target="_blank" class="nav-link">Polígono Studio ↗</a>
             <a href="mailto:danielesdosa@gmail.com" class="nav-link">Contacto</a>
@@ -416,7 +566,7 @@
         <div class="container">
             <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;">02 — Research Lab</h3>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+            <div class="research-grid">
                 <div>
                     <h4 style="font-size: 1.5rem; margin-top: 0;">Polígono Splitter</h4>
                     <p style="color: #ccc; font-weight: 300;">
@@ -437,7 +587,7 @@
                 <div>
                     <h4 style="font-size: 1.5rem; margin-top: 0;">Diseñando Sonido In The Box</h4>
                     <p style="color: #ccc; font-weight: 300;">
-                        Sistematización de metodologías para el diseño sonoro cinematográfico. Investigación sobre la optimización técnica y creativa en flujos de trabajo puramente digitales.
+                        Libro especializado que sistematiza metodologías para el diseño sonoro cinematográfico. Una investigación sobre la optimización técnica y creativa en flujos de trabajo puramente digitales.
                     </p>
                     <p style="font-size: 0.85rem; color: var(--text-muted);">Status: En edición / Publicación 2026.</p>
                 </div>
@@ -457,7 +607,8 @@
                 <div style="border-left: 1px solid var(--accent); padding-left: 1.5rem; margin-top: 1rem;">
                     <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 1px;">Rol Actual</p>
                     <p style="font-size: 1.1rem; margin: 0;">
-                        Fundador y Director en  
+                        Fundador y Director en:  
+                        <br>
                         <a href="https://poligonostudio.com" target="_blank" class="link-poligono">
                             Polígono Studio ↗
                         </a>
@@ -470,7 +621,7 @@
                 <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/danielesdosa94" target="_blank">GitHub</a>
                 
-                <a href="https://poligonostudio.com" target="_blank" class="link-poligono">Polígono Studio</a>
+                <a href="https://poligonostudio.com" target="_blank">Polígono Studio</a>
                 
                 <span style="margin-left: auto; color: #444;">© 2026 Daniel Domínguez</span>
             </div>
@@ -545,7 +696,25 @@
         container.addEventListener('mouseenter', triggerSound);
         container.addEventListener('click', triggerSound);
 
-        // --- MODAL ---
+        // --- LÓGICA DEL MENÚ HAMBURGUESA (MÓVIL) ---
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        // Abrir/Cerrar menú
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburgerBtn.classList.toggle('open'); 
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // --- MODAL VIDEO ---
         const modal = document.getElementById("videoModal");
         const btn = document.getElementById("openModalBtn");
         const span = document.getElementsByClassName("close-modal")[0];
@@ -571,7 +740,7 @@
             }
         }
 
-        // --- ANIMACIÓN ---
+        // --- ANIMACIÓN ONDA ---
         function resize() {
             width = container.clientWidth;
             height = container.clientHeight;
