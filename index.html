@@ -75,11 +75,77 @@
 
         section { padding: 6rem 0; }
 
-        /* --- NUEVO: CLASE PARA EL GRID DE RESEARCH --- */
-        .research-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        /* --- RESEARCH SLIDER --- */
+        .research-slider-wrapper {
+            position: relative;
+        }
+
+        .research-slider {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 1rem;
+        }
+
+        .research-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .research-card {
+            min-width: 400px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            padding: 2rem;
+            border: 1px solid #2a2a2a;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .research-card:hover {
+            border-color: #444;
+        }
+
+        .research-slider-nav {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            align-items: center;
+        }
+
+        .slider-arrow {
+            width: 48px;
+            height: 48px;
+            border: 1px solid #333;
+            border-radius: 50%;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .slider-arrow:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .slider-arrow:disabled {
+            opacity: 0.25;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .slider-counter {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-left: 1rem;
+            font-variant-numeric: tabular-nums;
         }
 
         /* --- HEADER & NAVEGACIÓN (Desktop) --- */
@@ -251,9 +317,8 @@
                 border-bottom-color: var(--accent) !important;
             }
 
-            .research-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+            .research-card {
+                min-width: 85vw;
             }
         }
 
@@ -568,30 +633,59 @@
         <div class="container">
             <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;" data-i18n="research_heading">02 — Research Lab</h3>
 
-            <div class="research-grid">
-                <div>
-                    <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research1_title">Polígono Splitter</h4>
-                    <p style="color: #ccc; font-weight: 300;" data-i18n="research1_desc">
-                        Herramienta de separación de fuentes sonoras basada en Deep Learning. Implementación de redes neuronales para optimización de flujos de trabajo en post-producción.
-                    </p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research1_tech">Tech Stack: Python, Electron, PyTorch.</p>
+            <div class="research-slider-wrapper">
+                <div class="research-slider" id="researchSlider">
 
-                    <div class="research-btn-group">
-                        <a href="https://poligonostudio.com/productos/poligono-splitter/" target="_blank" class="btn-research-primary" data-i18n="research1_btn_primary">
-                            Descarga la App ↓
-                        </a>
-                        <a href="https://github.com/danielesdosa94/poligono-demixer" target="_blank" class="btn-research-outline" data-i18n="research1_btn_secondary">
-                            GitHub Repo ↗
-                        </a>
+                    <div class="research-card">
+                        <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research1_title">Polígono Splitter</h4>
+                        <p style="color: #ccc; font-weight: 300;" data-i18n="research1_desc">
+                            Herramienta de separación de fuentes sonoras basada en Deep Learning. Implementación de redes neuronales para optimización de flujos de trabajo en post-producción.
+                        </p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research1_tech">Tech Stack: Python, Electron, PyTorch.</p>
+                        <div class="research-btn-group">
+                            <a href="https://poligonostudio.com/productos/poligono-splitter/" target="_blank" class="btn-research-primary" data-i18n="research1_btn_primary">
+                                Descarga la App ↓
+                            </a>
+                            <a href="https://github.com/danielesdosa94/poligono-demixer" target="_blank" class="btn-research-outline" data-i18n="research1_btn_secondary">
+                                GitHub Repo ↗
+                            </a>
+                        </div>
                     </div>
+
+                    <div class="research-card">
+                        <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research2_title">Diseñando Sonido In The Box</h4>
+                        <p style="color: #ccc; font-weight: 300;" data-i18n="research2_desc">
+                            Libro especializado que sistematiza metodologías para el diseño sonoro cinematográfico. Una investigación sobre la optimización técnica y creativa en flujos de trabajo puramente digitales.
+                        </p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research2_status">Status: En edición / Publicación 2026.</p>
+                    </div>
+
+                    <div class="research-card">
+                        <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research3_title">Neuro Audio Lab</h4>
+                        <p style="color: #ccc; font-weight: 300;" data-i18n="research3_desc">
+                            Entorno psicoacústico web para la gestión de estados mentales. Generación procedimental de paisajes sonoros adaptativos para Foco, Sueño y Ansiedad.
+                        </p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research3_status">Status: Beta / Web Audio API</p>
+                    </div>
+
+                    <div class="research-card">
+                        <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research4_title">Polígono AI Hub</h4>
+                        <p style="color: #ccc; font-weight: 300;" data-i18n="research4_desc">
+                            Suite de escritorio para procesamiento de audio mediante IA. Unifica herramientas de separación de stems (Demucs/PyTorch) y eliminación vocal con aceleración por GPU.
+                        </p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research4_status">Status: Beta / Electron + Python</p>
+                    </div>
+
                 </div>
 
-                <div>
-                    <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research2_title">Diseñando Sonido In The Box</h4>
-                    <p style="color: #ccc; font-weight: 300;" data-i18n="research2_desc">
-                        Libro especializado que sistematiza metodologías para el diseño sonoro cinematográfico. Una investigación sobre la optimización técnica y creativa en flujos de trabajo puramente digitales.
-                    </p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research2_status">Status: En edición / Publicación 2026.</p>
+                <div class="research-slider-nav">
+                    <button class="slider-arrow" id="sliderPrev" aria-label="Previous">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button class="slider-arrow" id="sliderNext" aria-label="Next">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                    </button>
+                    <span class="slider-counter" id="sliderCounter">1 / 4</span>
                 </div>
             </div>
         </div>
@@ -783,6 +877,42 @@
         }
 
         animate();
+
+        // --- RESEARCH SLIDER ---
+        const slider = document.getElementById('researchSlider');
+        const prevBtn = document.getElementById('sliderPrev');
+        const nextBtn = document.getElementById('sliderNext');
+        const counterEl = document.getElementById('sliderCounter');
+        const cards = slider.querySelectorAll('.research-card');
+        const totalCards = cards.length;
+
+        function getScrollStep() {
+            return cards[0].offsetWidth + 32; // card width + 2rem gap
+        }
+
+        function updateSliderState() {
+            const scrollLeft = slider.scrollLeft;
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+            prevBtn.disabled = scrollLeft <= 2;
+            nextBtn.disabled = scrollLeft >= maxScroll - 2;
+
+            // Calculate active card index
+            const step = getScrollStep();
+            const activeIndex = Math.round(scrollLeft / step) + 1;
+            counterEl.textContent = Math.min(activeIndex, totalCards) + ' / ' + totalCards;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+        });
+
+        slider.addEventListener('scroll', updateSliderState);
+        updateSliderState();
     </script>
 
     <script>
@@ -842,6 +972,14 @@
                 research2_title: "Diseñando Sonido In The Box",
                 research2_desc: "Libro especializado que sistematiza metodologías para el diseño sonoro cinematográfico. Una investigación sobre la optimización técnica y creativa en flujos de trabajo puramente digitales.",
                 research2_status: "Status: En edición / Publicación 2026.",
+
+                research3_title: "Neuro Audio Lab",
+                research3_desc: "Entorno psicoacústico web para la gestión de estados mentales. Generación procedimental de paisajes sonoros adaptativos para Foco, Sueño y Ansiedad.",
+                research3_status: "Status: Beta / Web Audio API",
+
+                research4_title: "Polígono AI Hub",
+                research4_desc: "Suite de escritorio para procesamiento de audio mediante IA. Unifica herramientas de separación de stems (Demucs/PyTorch) y eliminación vocal con aceleración por GPU.",
+                research4_status: "Status: Beta / Electron + Python",
 
                 // About Section
                 about_heading: "03 — Acerca de mi",
@@ -911,6 +1049,14 @@
                 research2_title: "Designing Sound In The Box",
                 research2_desc: "Specialized publication systematizing methodologies for cinematic sound design. A research exploration on technical and creative optimization in fully digital workflows.",
                 research2_status: "Status: Under editing / Release 2026.",
+
+                research3_title: "Neuro Audio Lab",
+                research3_desc: "Psychoacoustic web environment for mental state management. Procedural generation of adaptive soundscapes for Focus, Sleep, and Anxiety relief.",
+                research3_status: "Status: Beta / Web Audio API",
+
+                research4_title: "Polígono AI Hub",
+                research4_desc: "Desktop suite for AI-powered audio processing. Unifies stem separation tools (Demucs/PyTorch) and vocal removal with GPU acceleration.",
+                research4_status: "Status: Beta / Electron + Python",
 
                 // About Section
                 about_heading: "03 — About Me",
