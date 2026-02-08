@@ -465,9 +465,10 @@
 <body>
 
     <div id="mobileMenu" class="mobile-menu">
-        <a href="https://poligonostudio.com" target="_blank">Polígono Studio ↗</a>
-        <a href="mailto:danielesdosa@gmail.com">Contacto</a>
-        <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank">LinkedIn</a>
+        <a href="https://poligonostudio.com" target="_blank" data-i18n="nav_studio">Polígono Studio ↗</a>
+        <a href="mailto:danielesdosa@gmail.com" data-i18n="nav_contact">Contacto</a>
+        <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" data-i18n="nav_linkedin">LinkedIn</a>
+        <a href="#" id="langToggleMobile" class="nav-link" style="color: var(--accent);">EN</a>
     </div>
 
     <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
@@ -478,19 +479,20 @@
 
     <header>
         <nav class="top-nav">
-            <a href="https://poligonostudio.com" target="_blank" class="nav-link">Polígono Studio ↗</a>
-            <a href="mailto:danielesdosa@gmail.com" class="nav-link">Contacto</a>
-            <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" class="nav-link">LinkedIn</a>
+            <a href="https://poligonostudio.com" target="_blank" class="nav-link" data-i18n="nav_studio">Polígono Studio ↗</a>
+            <a href="mailto:danielesdosa@gmail.com" class="nav-link" data-i18n="nav_contact">Contacto</a>
+            <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" class="nav-link" data-i18n="nav_linkedin">LinkedIn</a>
+            <a href="#" id="langToggleDesktop" class="nav-link" style="cursor: pointer;">EN</a>
         </nav>
 
         <div class="container">
-            <p style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Portafolio / Investigación</p>
-            
-            <h1>Daniel Domínguez</h1>
-            
+            <p style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;" data-i18n="hero_label">Portafolio / Investigación</p>
+
+            <h1 data-i18n="hero_name">Daniel Domínguez</h1>
+
             <h2>
-                Artista Sonoro, Investigador de Audio
-                <span class="hero-subtitle">IA & Creatividad Computacional</span>
+                <span data-i18n="hero_title">Artista Sonoro, Investigador de Audio</span>
+                <span class="hero-subtitle" data-i18n="hero_subtitle">IA & Creatividad Computacional</span>
             </h2>
 
             <div id="wave-container">
@@ -498,10 +500,10 @@
             </div>
 
             <div class="hero-actions">
-                <a href="#works" class="link-scroll">Ver Proyectos Seleccionados ↓</a>
-                
+                <a href="#works" class="link-scroll" data-i18n="hero_scroll">Ver Proyectos Seleccionados ↓</a>
+
                 <button id="openModalBtn" class="btn-hero-reel">
-                    <span style="margin-right: 8px;">▶</span> Showreel
+                    <span style="margin-right: 8px;">▶</span> <span data-i18n="hero_showreel">Showreel</span>
                 </button>
             </div>
         </div>
@@ -516,17 +518,17 @@
 
     <section id="works">
         <div class="container">
-            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;">01 — Trabajos Seleccionados</h3>
-            
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;" data-i18n="works_heading">01 — Trabajos Seleccionados</h3>
+
             <article style="margin-bottom: 4rem;">
                 <a href="https://youtu.be/oMU26v3PcSc?si=ZPM9oW0tCYbLoDha" target="_blank" style="display: block;">
                     <div class="project-img-container">
                         <img src="assets/img/caretaker.jpg" alt="caretaker" class="project-img">
                     </div>
-                    <h4 style="font-size: 1.8rem; margin: 0;">Caretaker</h4>
-                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;">Rol: Re-recording mixer / Lead Sound Designer</p>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;">Prod: Light & Noise</p>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;">Dir: Veronica Wood</p>
+                    <h4 style="font-size: 1.8rem; margin: 0;" data-i18n="project1_title">Caretaker</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;" data-i18n="project1_role">Rol: Re-recording mixer / Lead Sound Designer</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project1_prod">Prod: Light & Noise</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project1_dir">Dir: Veronica Wood</p>
                 </a>
             </article>
 
@@ -535,10 +537,10 @@
                     <div class="project-img-container">
                         <img src="assets/img/resilience.jpg" alt="resilience" class="project-img">
                     </div>
-                    <h4 style="font-size: 1.8rem; margin: 0;">The Art of Resilience: Episode 2</h4>
-                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;">Rol: Captación de sonido directo</p>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;">Prod: Waterbear</p>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;">Dir: Federico Urdaneta</p>
+                    <h4 style="font-size: 1.8rem; margin: 0;" data-i18n="project2_title">The Art of Resilience: Episode 2</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;" data-i18n="project2_role">Rol: Captación de sonido directo</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project2_prod">Prod: Waterbear</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project2_dir">Dir: Federico Urdaneta</p>
                 </a>
             </article>
 
@@ -547,15 +549,15 @@
                     <div class="project-img-container">
                         <img src="assets/img/misfit.jpg" alt="misfit" class="project-img">
                     </div>
-                    <h4 style="font-size: 1.8rem; margin: 0;">Misfit # Eres O Te Haces</h4>
-                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;">Rol: SFX Editor</p>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;">Prod: 2btube</p>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;">Dir: Orlando Herrera</p>
+                    <h4 style="font-size: 1.8rem; margin: 0;" data-i18n="project3_title">Misfit # Eres O Te Haces</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;" data-i18n="project3_role">Rol: SFX Editor</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project3_prod">Prod: 2btube</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project3_dir">Dir: Orlando Herrera</p>
                 </a>
             </article>
 
             <div class="works-footer">
-                <a href="https://poligonostudio.com/portafolio" target="_blank" class="btn-studio">
+                <a href="https://poligonostudio.com/portafolio" target="_blank" class="btn-studio" data-i18n="works_footer_link">
                     Ver Portafolio Completo del Estudio ↗
                 </a>
             </div>
@@ -564,32 +566,32 @@
 
     <section id="research" style="background-color: #1a1a1a;">
         <div class="container">
-            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;">02 — Research Lab</h3>
-            
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;" data-i18n="research_heading">02 — Research Lab</h3>
+
             <div class="research-grid">
                 <div>
-                    <h4 style="font-size: 1.5rem; margin-top: 0;">Polígono Splitter</h4>
-                    <p style="color: #ccc; font-weight: 300;">
+                    <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research1_title">Polígono Splitter</h4>
+                    <p style="color: #ccc; font-weight: 300;" data-i18n="research1_desc">
                         Herramienta de separación de fuentes sonoras basada en Deep Learning. Implementación de redes neuronales para optimización de flujos de trabajo en post-producción.
                     </p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Tech Stack: Python, Electron, PyTorch.</p>
-                    
+                    <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research1_tech">Tech Stack: Python, Electron, PyTorch.</p>
+
                     <div class="research-btn-group">
-                        <a href="https://poligonostudio.com/productos/poligono-splitter/" target="_blank" class="btn-research-primary">
+                        <a href="https://poligonostudio.com/productos/poligono-splitter/" target="_blank" class="btn-research-primary" data-i18n="research1_btn_primary">
                             Descarga la App ↓
                         </a>
-                        <a href="https://github.com/danielesdosa94/poligono-demixer" target="_blank" class="btn-research-outline">
+                        <a href="https://github.com/danielesdosa94/poligono-demixer" target="_blank" class="btn-research-outline" data-i18n="research1_btn_secondary">
                             GitHub Repo ↗
                         </a>
                     </div>
                 </div>
 
                 <div>
-                    <h4 style="font-size: 1.5rem; margin-top: 0;">Diseñando Sonido In The Box</h4>
-                    <p style="color: #ccc; font-weight: 300;">
+                    <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research2_title">Diseñando Sonido In The Box</h4>
+                    <p style="color: #ccc; font-weight: 300;" data-i18n="research2_desc">
                         Libro especializado que sistematiza metodologías para el diseño sonoro cinematográfico. Una investigación sobre la optimización técnica y creativa en flujos de trabajo puramente digitales.
                     </p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Status: En edición / Publicación 2026.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research2_status">Status: En edición / Publicación 2026.</p>
                 </div>
             </div>
         </div>
@@ -597,17 +599,20 @@
 
     <section id="about">
         <div class="container">
-            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2rem;">03 — Acerca de mi</h3>
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2rem;" data-i18n="about_heading">03 — Acerca de mi</h3>
             <div style="display: flex; flex-direction: column; gap: 2rem;">
-                <p style="font-size: 1.1rem; font-family: var(--font-serif); max-width: 750px; margin: 0; line-height: 1.8;">
-                    Con más de una década de experiencia creando narrativas sonoras para cine, publicidad y medios digitales, mi práctica profesional se fundamenta en la precisión técnica y la sensibilidad artística.
-                    <br><br>
-                    En el ámbito académico, compagino la industria con la docencia, formando a nuevas generaciones en Diseño Sonoro. Actualmente, mi investigación se sitúa en la intersección del audio y la tecnología, explorando cómo la Inteligencia Artificial está redefiniendo los límites de la creación y la postproducción audiovisual.
-                </p>
+                <div style="max-width: 750px; margin: 0;">
+                    <p style="font-size: 1.1rem; font-family: var(--font-serif); margin: 0 0 1.5rem 0; line-height: 1.8;" data-i18n="about_bio_p1">
+                        Con más de una década de experiencia creando narrativas sonoras para cine, publicidad y medios digitales, mi práctica profesional se fundamenta en la precisión técnica y la sensibilidad artística.
+                    </p>
+                    <p style="font-size: 1.1rem; font-family: var(--font-serif); margin: 0; line-height: 1.8;" data-i18n="about_bio_p2">
+                        En el ámbito académico, compagino la industria con la docencia, formando a nuevas generaciones en Diseño Sonoro. Actualmente, mi investigación se sitúa en la intersección del audio y la tecnología, explorando cómo la Inteligencia Artificial está redefiniendo los límites de la creación y la postproducción audiovisual.
+                    </p>
+                </div>
                 <div style="border-left: 1px solid var(--accent); padding-left: 1.5rem; margin-top: 1rem;">
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 1px;">Rol Actual</p>
-                    <p style="font-size: 1.1rem; margin: 0;">
-                        Fundador y Director en:  
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 1px;" data-i18n="about_current_role_label">Rol Actual</p>
+                    <p style="font-size: 1.1rem; margin: 0;" data-i18n-html="about_current_role">
+                        Fundador y Director en:
                         <br>
                         <a href="https://poligonostudio.com" target="_blank" class="link-poligono">
                             Polígono Studio ↗
@@ -617,17 +622,17 @@
             </div>
             
             <div style="margin-top: 5rem; border-top: 1px solid #333; padding-top: 2rem; display: flex; flex-wrap: wrap; gap: 2rem; font-size: 0.9rem;">
-                <a href="mailto:danielesdosa@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/danielesdosa94" target="_blank">GitHub</a>
-                
-                <a href="https://poligonostudio.com" target="_blank">Polígono Studio</a>
-                
-                <span style="margin-left: auto; color: #444;">© 2026 Daniel Domínguez</span>
+                <a href="mailto:danielesdosa@gmail.com" data-i18n="footer_email">Email</a>
+                <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" data-i18n="footer_linkedin">LinkedIn</a>
+                <a href="https://github.com/danielesdosa94" target="_blank" data-i18n="footer_github">GitHub</a>
+
+                <a href="https://poligonostudio.com" target="_blank" data-i18n="footer_studio">Polígono Studio</a>
+
+                <span style="margin-left: auto; color: #444;" data-i18n="footer_copyright">© 2026 Daniel Domínguez</span>
             </div>
-            
+
             <div style="margin-top: 1rem; text-align: right; font-size: 0.7rem; color: #333;">
-                <a href="https://github.com/danielesdosa94/danieldominguez-audio-web" target="_blank">Source Code of this site</a>
+                <a href="https://github.com/danielesdosa94/danieldominguez-audio-web" target="_blank" data-i18n="footer_source">Source Code of this site</a>
             </div>
         </div>
     </section>
@@ -778,6 +783,219 @@
         }
 
         animate();
+    </script>
+
+    <script>
+        // ============================================
+        // i18n — TRANSLATIONS & LANGUAGE ENGINE
+        // ============================================
+        const translations = {
+            es: {
+                // Meta
+                meta_description: "Daniel Domínguez | Investigador de Audio & Artista Sonoro. Explorando la intersección entre el paisaje sonoro y la Inteligencia Artificial.",
+
+                // Navigation
+                nav_studio: "Polígono Studio ↗",
+                nav_contact: "Contacto",
+                nav_linkedin: "LinkedIn",
+
+                // Hero Section
+                hero_label: "Portafolio / Investigación",
+                hero_name: "Daniel Domínguez",
+                hero_title: "Artista Sonoro, Investigador de Audio",
+                hero_subtitle: "IA & Creatividad Computacional",
+                hero_scroll: "Ver Proyectos Seleccionados ↓",
+                hero_showreel: "Showreel",
+
+                // Works Section
+                works_heading: "01 — Trabajos Seleccionados",
+
+                // Project 1: Caretaker
+                project1_title: "Caretaker",
+                project1_role: "Rol: Re-recording mixer / Lead Sound Designer",
+                project1_prod: "Prod: Light & Noise",
+                project1_dir: "Dir: Veronica Wood",
+
+                // Project 2: Resilience
+                project2_title: "The Art of Resilience: Episode 2",
+                project2_role: "Rol: Captación de sonido directo",
+                project2_prod: "Prod: Waterbear",
+                project2_dir: "Dir: Federico Urdaneta",
+
+                // Project 3: Misfit
+                project3_title: "Misfit # Eres O Te Haces",
+                project3_role: "Rol: SFX Editor",
+                project3_prod: "Prod: 2btube",
+                project3_dir: "Dir: Orlando Herrera",
+
+                works_footer_link: "Ver Portafolio Completo del Estudio ↗",
+
+                // Research Section
+                research_heading: "02 — Research Lab",
+
+                research1_title: "Polígono Splitter",
+                research1_desc: "Herramienta de separación de fuentes sonoras basada en Deep Learning. Implementación de redes neuronales para optimización de flujos de trabajo en post-producción.",
+                research1_tech: "Tech Stack: Python, Electron, PyTorch.",
+                research1_btn_primary: "Descarga la App ↓",
+                research1_btn_secondary: "GitHub Repo ↗",
+
+                research2_title: "Diseñando Sonido In The Box",
+                research2_desc: "Libro especializado que sistematiza metodologías para el diseño sonoro cinematográfico. Una investigación sobre la optimización técnica y creativa en flujos de trabajo puramente digitales.",
+                research2_status: "Status: En edición / Publicación 2026.",
+
+                // About Section
+                about_heading: "03 — Acerca de mi",
+                about_bio_p1: "Con más de una década de experiencia creando narrativas sonoras para cine, publicidad y medios digitales, mi práctica profesional se fundamenta en la precisión técnica y la sensibilidad artística.",
+                about_bio_p2: "En el ámbito académico, compagino la industria con la docencia, formando a nuevas generaciones en Diseño Sonoro. Actualmente, mi investigación se sitúa en la intersección del audio y la tecnología, explorando cómo la Inteligencia Artificial está redefiniendo los límites de la creación y la postproducción audiovisual.",
+                about_current_role_label: "Rol Actual",
+                about_current_role: 'Fundador y Director en:<br><a href="https://poligonostudio.com" target="_blank" class="link-poligono">Polígono Studio ↗</a>',
+
+                // Footer
+                footer_email: "Email",
+                footer_linkedin: "LinkedIn",
+                footer_github: "GitHub",
+                footer_studio: "Polígono Studio",
+                footer_copyright: "© 2026 Daniel Domínguez",
+                footer_source: "Source Code of this site"
+            },
+
+            en: {
+                // Meta
+                meta_description: "Daniel Domínguez | Audio Researcher & Sound Artist. Exploring the intersection of soundscape and Artificial Intelligence.",
+
+                // Navigation
+                nav_studio: "Polígono Studio ↗",
+                nav_contact: "Contact",
+                nav_linkedin: "LinkedIn",
+
+                // Hero Section
+                hero_label: "Portfolio / Research",
+                hero_name: "Daniel Domínguez",
+                hero_title: "Sound Artist, Audio Researcher",
+                hero_subtitle: "AI & Computational Creativity",
+                hero_scroll: "View Selected Projects ↓",
+                hero_showreel: "Showreel",
+
+                // Works Section
+                works_heading: "01 — Selected Works",
+
+                // Project 1: Caretaker
+                project1_title: "Caretaker",
+                project1_role: "Role: Re-recording Mixer / Lead Sound Designer",
+                project1_prod: "Prod: Light & Noise",
+                project1_dir: "Dir: Veronica Wood",
+
+                // Project 2: Resilience
+                project2_title: "The Art of Resilience: Episode 2",
+                project2_role: "Role: Production Sound Mixer",
+                project2_prod: "Prod: Waterbear",
+                project2_dir: "Dir: Federico Urdaneta",
+
+                // Project 3: Misfit
+                project3_title: "Misfit # Eres O Te Haces",
+                project3_role: "Role: SFX Editor",
+                project3_prod: "Prod: 2btube",
+                project3_dir: "Dir: Orlando Herrera",
+
+                works_footer_link: "View Full Studio Portfolio ↗",
+
+                // Research Section
+                research_heading: "02 — Research Lab",
+
+                research1_title: "Polígono Splitter",
+                research1_desc: "Deep Learning-based audio source separation tool. Neural network implementation for workflow optimization in post-production environments.",
+                research1_tech: "Tech Stack: Python, Electron, PyTorch.",
+                research1_btn_primary: "Download App ↓",
+                research1_btn_secondary: "GitHub Repo ↗",
+
+                research2_title: "Designing Sound In The Box",
+                research2_desc: "Specialized publication systematizing methodologies for cinematic sound design. A research exploration on technical and creative optimization in fully digital workflows.",
+                research2_status: "Status: Under editing / Release 2026.",
+
+                // About Section
+                about_heading: "03 — About Me",
+                about_bio_p1: "With over a decade of experience crafting sonic narratives for film, advertising, and digital media, my professional practice is grounded in technical precision and artistic sensitivity.",
+                about_bio_p2: "In the academic realm, I balance industry work with teaching, training new generations in Sound Design. Currently, my research sits at the intersection of audio and technology, exploring how Artificial Intelligence is redefining the boundaries of creation and audiovisual post-production.",
+                about_current_role_label: "Current Role",
+                about_current_role: 'Founder & Director at:<br><a href="https://poligonostudio.com" target="_blank" class="link-poligono">Polígono Studio ↗</a>',
+
+                // Footer
+                footer_email: "Email",
+                footer_linkedin: "LinkedIn",
+                footer_github: "GitHub",
+                footer_studio: "Polígono Studio",
+                footer_copyright: "© 2026 Daniel Domínguez",
+                footer_source: "Source Code of this site"
+            }
+        };
+
+        // ============================================
+        // LANGUAGE ENGINE
+        // ============================================
+        let currentLang = 'es';
+
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+
+            currentLang = lang;
+
+            // Update <html lang="">
+            document.documentElement.lang = lang;
+
+            // Update meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', t.meta_description);
+
+            // Update all data-i18n elements (textContent)
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key] !== undefined) {
+                    el.textContent = t[key];
+                }
+            });
+
+            // Update all data-i18n-html elements (innerHTML — for elements with nested HTML)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (t[key] !== undefined) {
+                    el.innerHTML = t[key];
+                }
+            });
+
+            // Update language toggle buttons
+            const nextLang = lang === 'es' ? 'EN' : 'ES';
+            const toggleDesktop = document.getElementById('langToggleDesktop');
+            const toggleMobile = document.getElementById('langToggleMobile');
+            if (toggleDesktop) toggleDesktop.textContent = nextLang;
+            if (toggleMobile) toggleMobile.textContent = nextLang;
+
+            // Persist selection
+            localStorage.setItem('site-lang', lang);
+        }
+
+        // Toggle handler
+        function toggleLanguage(e) {
+            e.preventDefault();
+            changeLanguage(currentLang === 'es' ? 'en' : 'es');
+        }
+
+        document.getElementById('langToggleDesktop').addEventListener('click', toggleLanguage);
+        document.getElementById('langToggleMobile').addEventListener('click', toggleLanguage);
+
+        // ============================================
+        // INIT: Detect saved or browser language
+        // ============================================
+        (function initLanguage() {
+            const saved = localStorage.getItem('site-lang');
+            if (saved && translations[saved]) {
+                changeLanguage(saved);
+                return;
+            }
+
+            const browserLang = (navigator.language || navigator.userLanguage || 'es').slice(0, 2);
+            changeLanguage(browserLang === 'en' ? 'en' : 'es');
+        })();
     </script>
 
 </body>
