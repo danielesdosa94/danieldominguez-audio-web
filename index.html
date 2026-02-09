@@ -82,12 +82,11 @@
 
         .research-slider {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            padding-bottom: 1rem;
         }
 
         .research-slider::-webkit-scrollbar {
@@ -95,23 +94,24 @@
         }
 
         .research-card {
-            min-width: 400px;
+            min-width: calc(50% - 1.5rem);
             flex-shrink: 0;
             scroll-snap-align: start;
             padding: 2rem;
-            border: 1px solid #2a2a2a;
+            border: 1px solid #333;
             border-radius: 4px;
+            background-color: transparent;
             transition: border-color 0.3s ease;
         }
 
         .research-card:hover {
-            border-color: #444;
+            border-color: var(--accent);
         }
 
         .research-slider-nav {
             display: flex;
             gap: 0.75rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             align-items: center;
         }
 
@@ -318,7 +318,12 @@
             }
 
             .research-card {
-                min-width: 85vw;
+                min-width: 80vw;
+            }
+
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
             }
         }
 
@@ -887,7 +892,7 @@
         const totalCards = cards.length;
 
         function getScrollStep() {
-            return cards[0].offsetWidth + 32; // card width + 2rem gap
+            return cards[0].offsetWidth + 48; // card width + 3rem gap
         }
 
         function updateSliderState() {
