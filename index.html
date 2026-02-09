@@ -84,6 +84,7 @@
             scrollbar-width: none;
             -ms-overflow-style: none;
             padding-bottom: 2rem;
+            padding-right: max(2rem, calc((100% - 900px) / 2 + 2rem));
         }
 
         .research-slider::-webkit-scrollbar {
@@ -677,7 +678,12 @@
                 <p style="color: #ccc; font-weight: 300;" data-i18n="research3_desc">
                     Entorno psicoacústico web para la gestión de estados mentales. Generación procedimental de paisajes sonoros adaptativos para Foco, Sueño y Ansiedad.
                 </p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research3_status">Status: Beta / Web Audio API</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research3_tech">Tech Stack: Web Audio API, JavaScript, Canvas.</p>
+                <div class="research-btn-group">
+                    <a href="https://lab.poligonostudio.com" target="_blank" class="btn-research-primary" data-i18n="research3_btn_primary">
+                        Visitar Sitio ↗
+                    </a>
+                </div>
             </article>
 
             <article class="research-card">
@@ -685,7 +691,12 @@
                 <p style="color: #ccc; font-weight: 300;" data-i18n="research4_desc">
                     Suite de escritorio para procesamiento de audio mediante IA. Unifica herramientas de separación de stems (Demucs/PyTorch) y eliminación vocal con aceleración por GPU.
                 </p>
-                <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research4_status">Status: Beta / Electron + Python</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research4_tech">Tech Stack: Electron, Python, PyTorch, CUDA.</p>
+                <div class="research-btn-group">
+                    <a href="https://github.com/danielesdosa94/poligono-vocal-remover" target="_blank" class="btn-research-outline" data-i18n="research4_btn_secondary">
+                        GitHub Repo ↗
+                    </a>
+                </div>
             </article>
 
         </div>
@@ -989,11 +1000,13 @@
 
                 research3_title: "Neuro Audio Lab",
                 research3_desc: "Entorno psicoacústico web para la gestión de estados mentales. Generación procedimental de paisajes sonoros adaptativos para Foco, Sueño y Ansiedad.",
-                research3_status: "Status: Beta / Web Audio API",
+                research3_tech: "Tech Stack: Web Audio API, JavaScript, Canvas.",
+                research3_btn_primary: "Visitar Sitio ↗",
 
                 research4_title: "Polígono AI Hub",
                 research4_desc: "Suite de escritorio para procesamiento de audio mediante IA. Unifica herramientas de separación de stems (Demucs/PyTorch) y eliminación vocal con aceleración por GPU.",
-                research4_status: "Status: Beta / Electron + Python",
+                research4_tech: "Tech Stack: Electron, Python, PyTorch, CUDA.",
+                research4_btn_secondary: "GitHub Repo ↗",
 
                 // About Section
                 about_heading: "03 — Acerca de mi",
@@ -1066,11 +1079,13 @@
 
                 research3_title: "Neuro Audio Lab",
                 research3_desc: "Psychoacoustic web environment for mental state management. Procedural generation of adaptive soundscapes for Focus, Sleep, and Anxiety relief.",
-                research3_status: "Status: Beta / Web Audio API",
+                research3_tech: "Tech Stack: Web Audio API, JavaScript, Canvas.",
+                research3_btn_primary: "Visit Site ↗",
 
                 research4_title: "Polígono AI Hub",
                 research4_desc: "Desktop suite for AI-powered audio processing. Unifies stem separation tools (Demucs/PyTorch) and vocal removal with GPU acceleration.",
-                research4_status: "Status: Beta / Electron + Python",
+                research4_tech: "Tech Stack: Electron, Python, PyTorch, CUDA.",
+                research4_btn_secondary: "GitHub Repo ↗",
 
                 // About Section
                 about_heading: "03 — About Me",
