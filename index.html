@@ -934,8 +934,9 @@
         const cards = slider.querySelectorAll('.research-card');
 
         function getScrollStep() {
-            // Read actual gap from computed style
-            const gap = parseFloat(getComputedStyle(slider).gap) || 48;
+            // Leer el gap del contenedor flex interno, no del wrapper
+            const innerSlider = slider.querySelector('.research-slider');
+            const gap = parseFloat(getComputedStyle(innerSlider).gap) || 0;
             return cards[0].offsetWidth + gap;
         }
 
@@ -948,11 +949,15 @@
         }
 
         prevBtn.addEventListener('click', () => {
-            slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+            const step = getScrollStep();
+            const currentIndex = Math.round(slider.scrollLeft / step);
+            slider.scrollTo({ left: (currentIndex - 1) * step, behavior: 'smooth' });
         });
 
         nextBtn.addEventListener('click', () => {
-            slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+            const step = getScrollStep();
+            const currentIndex = Math.round(slider.scrollLeft / step);
+            slider.scrollTo({ left: (currentIndex + 1) * step, behavior: 'smooth' });
         });
 
         slider.addEventListener('scroll', updateSliderState);
