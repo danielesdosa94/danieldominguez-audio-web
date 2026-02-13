@@ -720,7 +720,6 @@
                 <button class="slider-arrow" id="sliderNext" aria-label="Next">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
                 </button>
-                <span class="slider-counter" id="sliderCounter">1 / 4</span>
             </div>
         </div>
     </section>
@@ -916,9 +915,7 @@
         const slider = document.getElementById('researchSlider');
         const prevBtn = document.getElementById('sliderPrev');
         const nextBtn = document.getElementById('sliderNext');
-        const counterEl = document.getElementById('sliderCounter');
         const cards = slider.querySelectorAll('.research-card');
-        const totalCards = cards.length;
 
         function getScrollStep() {
             // Read actual gap from computed style
@@ -932,11 +929,6 @@
 
             prevBtn.disabled = scrollLeft <= 2;
             nextBtn.disabled = scrollLeft >= maxScroll - 2;
-
-            // Calculate active card index
-            const step = getScrollStep();
-            const activeIndex = Math.round(scrollLeft / step) + 1;
-            counterEl.textContent = Math.min(activeIndex, totalCards) + ' / ' + totalCards;
         }
 
         prevBtn.addEventListener('click', () => {
