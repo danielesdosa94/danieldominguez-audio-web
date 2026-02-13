@@ -79,7 +79,7 @@
         .research-slider-wrap {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            scroll-padding-left: max(2rem, calc(50vw - 450px + 2rem));
+            scroll-padding-left: 10rem; /* Para centrar el primer card al hacer scroll */
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
@@ -92,7 +92,7 @@
             display: flex;
             gap: 3rem;
             width: min(900px, 100vw);
-            padding: 0 max(2rem, calc(50vw - 450px + 2rem)) 2rem;
+            padding: 0 2rem 2rem 10rem; /* Extra padding para centrar el primer card */
         }
 
         .research-card {
