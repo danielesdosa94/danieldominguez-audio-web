@@ -105,6 +105,11 @@
             transition: border-color 0.3s ease;
         }
 
+        .research-slider::after {
+            content: "";
+            flex: 0 0 10rem; /* <-- ESTE ES EL ESPACIO INVISIBLE. */
+        }
+
         .research-card h4 {
             margin-bottom: 1rem;
         }
