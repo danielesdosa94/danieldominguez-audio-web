@@ -335,9 +335,10 @@
             }
 
             .research-slider-wrap {
+                margin: 0 !important;
                 padding: 0 !important;
-                margin: 0 -2rem !important;
                 width: 100vw !important;
+                scroll-padding-left: 1.5rem !important;
             }
 
             .research-slider {
@@ -349,11 +350,8 @@
             .research-card {
                 box-sizing: border-box !important;
                 flex: 0 0 calc(100vw - 3rem) !important;
-                max-width: calc(100vw - 3rem) !important;
-            }
-
-            .research-slider::after {
-                flex: 0 0 1px !important;
+                width: calc(100vw - 3rem) !important;
+                scroll-snap-align: start !important;
             }
 
             .slider-arrow {
