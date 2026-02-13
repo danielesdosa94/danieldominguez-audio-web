@@ -335,19 +335,22 @@
             }
 
             .research-slider-wrap {
-                padding-left: 2rem;
-                padding-right: 2rem;
+                scroll-padding-left: 1.5rem !important;
             }
 
             .research-slider {
-                gap: 1.5rem;
-                width: 100vw;
-                padding: 0 2rem 2rem;
+                padding: 0 1.5rem 2rem 1.5rem !important;
+                gap: 1rem !important;
             }
 
             .research-card {
-                flex: 0 0 85vw;
-                padding: 1.5rem;
+                flex: 0 0 85vw !important;
+                padding: 1.5rem !important;
+                min-width: 0;
+            }
+
+            .research-slider::after {
+                flex: 0 0 1px !important;
             }
 
             .slider-arrow {
