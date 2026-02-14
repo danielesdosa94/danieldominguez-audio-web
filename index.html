@@ -369,6 +369,11 @@
             .research-slider-nav {
                 justify-content: center !important;
             }
+
+            .footer-legal {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
 
         /* --- ANIMACIÓN ONDA --- */
@@ -804,23 +809,22 @@
                 </div>
             </div>
             
-            <div style="margin-top: 5rem; border-top: 1px solid #333; padding-top: 2rem; display: flex; flex-wrap: wrap; gap: 2rem; font-size: 0.9rem;">
+            <!-- Bloque de Enlaces -->
+            <div class="footer-links" style="margin-top: 5rem; border-top: 1px solid #333; padding-top: 2rem; display: flex; flex-wrap: wrap; gap: 2rem; font-size: 0.9rem;">
                 <a href="mailto:danielesdosa@gmail.com" data-i18n="footer_email">Email</a>
                 <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" data-i18n="footer_linkedin">LinkedIn</a>
                 <a href="https://github.com/danielesdosa94" target="_blank" data-i18n="footer_github">GitHub</a>
-
                 <a href="https://poligonostudio.com" target="_blank" data-i18n="footer_studio">Polígono Studio</a>
-
                 <a href="#" id="langToggleFooter" style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                     <span class="lang-text">EN</span>
                 </a>
-
-                <span style="margin-left: auto; color: #444;" data-i18n="footer_copyright">© 2026 Daniel Domínguez</span>
             </div>
 
-            <div style="margin-top: 1rem; text-align: right; font-size: 0.7rem; color: #333;">
-                <a href="https://github.com/danielesdosa94/danieldominguez-audio-web" target="_blank" data-i18n="footer_source">Source Code of this site</a>
+            <!-- Bloque Legal -->
+            <div class="footer-legal" style="margin-top: 4rem; border-top: 1px solid #222; padding-top: 1rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: 0.8rem;">
+                <span style="color: #444;" data-i18n="footer_copyright">© 2026 Daniel Domínguez</span>
+                <a href="https://github.com/danielesdosa94/danieldominguez-audio-web" target="_blank" style="color: #333;" data-i18n="footer_source">Source Code of this site</a>
             </div>
         </div>
     </section>
