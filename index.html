@@ -71,7 +71,7 @@
         }
 
         a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
-        a:hover { color: var(--accent); }
+        @media (hover: hover) { a:hover { color: var(--accent); } }
 
         section { padding: 6rem 0; }
 
@@ -122,8 +122,10 @@
             margin-bottom: 0;
         }
 
-        .research-card:hover {
-            border-color: var(--accent);
+        @media (hover: hover) {
+            .research-card:hover {
+                border-color: var(--accent);
+            }
         }
 
         .research-slider-nav {
@@ -147,9 +149,11 @@
             transition: border-color 0.3s ease, color 0.3s ease;
         }
 
-        .slider-arrow:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+        @media (hover: hover) {
+            .slider-arrow:hover {
+                border-color: var(--accent);
+                color: var(--accent);
+            }
         }
 
         .slider-arrow:disabled {
@@ -191,8 +195,10 @@
             transition: color 0.3s ease;
         }
 
-        .nav-link:hover {
-            color: var(--accent);
+        @media (hover: hover) {
+            .nav-link:hover {
+                color: var(--accent);
+            }
         }
 
         /* --- ESTILOS MENÚ HAMBURGUESA (Móvil) --- */
@@ -329,9 +335,11 @@
                 padding-bottom: 2px; 
             }
 
-            .btn-studio:hover {
-                color: var(--accent) !important;
-                border-bottom-color: var(--accent) !important;
+            @media (hover: hover) {
+                .btn-studio:hover {
+                    color: var(--accent) !important;
+                    border-bottom-color: var(--accent) !important;
+                }
             }
 
             .research-slider-wrap {
@@ -409,10 +417,12 @@
             border: none;
         }
 
-        .btn-hero-reel:hover {
-            background-color: var(--accent);
-            color: white;
-            transform: translateY(-2px);
+        @media (hover: hover) {
+            .btn-hero-reel:hover {
+                background-color: var(--accent);
+                color: white;
+                transform: translateY(-2px);
+            }
         }
 
         /* --- VENTANA MODAL --- */
@@ -458,8 +468,10 @@
             line-height: 1;
         }
 
-        .close-modal:hover {
-            color: var(--accent);
+        @media (hover: hover) {
+            .close-modal:hover {
+                color: var(--accent);
+            }
         }
 
         /* --- PROYECTOS --- */
@@ -492,8 +504,10 @@
         }
 
         article { cursor: pointer; } 
-        article:hover .project-img { transform: scale(1.03); }
-        article:hover .project-img-container::after { opacity: 0; }
+        @media (hover: hover) {
+            article:hover .project-img { transform: scale(1.03); }
+            article:hover .project-img-container::after { opacity: 0; }
+        }
 
         /* --- FOOTER ACTIONS --- */
         .works-footer {
@@ -510,9 +524,11 @@
             border-bottom: 1px solid transparent;
         }
 
-        .btn-studio:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
+        @media (hover: hover) {
+            .btn-studio:hover {
+                color: var(--accent);
+                border-bottom-color: var(--accent);
+            }
         }
 
         /* --- LINK POLIGONO HOVER --- */
@@ -521,10 +537,12 @@
             border-bottom: 1px solid var(--text-muted);
             transition: color 0.3s ease, border-color 0.3s ease;
         }
-        
-        .link-poligono:hover {
-            color: var(--accent);
-            border-color: var(--accent);
+
+        @media (hover: hover) {
+            .link-poligono:hover {
+                color: var(--accent);
+                border-color: var(--accent);
+            }
         }
 
         /* --- BOTONES RESEARCH --- */
@@ -546,10 +564,12 @@
             transition: 0.2s;
         }
 
-        .btn-research-primary:hover {
-            background-color: var(--accent);
-            border-color: var(--accent);
-            color: white;
+        @media (hover: hover) {
+            .btn-research-primary:hover {
+                background-color: var(--accent);
+                border-color: var(--accent);
+                color: white;
+            }
         }
 
         .btn-research-outline {
@@ -561,9 +581,11 @@
             transition: 0.2s;
         }
 
-        .btn-research-outline:hover {
-            border-color: var(--text-main);
-            color: var(--text-main);
+        @media (hover: hover) {
+            .btn-research-outline:hover {
+                border-color: var(--text-main);
+                color: var(--text-main);
+            }
         }
 
     </style>
