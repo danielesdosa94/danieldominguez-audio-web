@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daniel Domínguez | Investigador de Audio & Artista Sonoro. Explorando la intersección entre el paisaje sonoro y la Inteligencia Artificial.">
+    <title>Daniel Dominguez | Sonic Architect & AI Researcher</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --bg-color: #141414;
+            --text-main: #F1F1F1;
+            --text-muted: #888888;
+            --accent: #D9052E; /* Rojo corporativo */
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- LAYOUT GENERAL --- */
+        .container {
+            max-width: 900px; 
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-size: 4rem; 
+            margin: 1rem 0 0.5rem 0; 
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            font-size: 1.5rem; 
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .hero-subtitle {
+            display: block; 
+            font-size: 1.1rem; 
+            color: var(--text-main);
+            margin-top: 0.5rem;
+            letter-spacing: 0.5px; 
+            font-weight: 400;
+        }
+
+        h3 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+        }
+
+        a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+        @media (hover: hover) { a:hover { color: var(--accent); } }
+
+        section { padding: 6rem 0; }
+
+        /* --- RESEARCH SLIDER --- */
+        .research-slider-wrap {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: 10rem; /* Para centrar el primer card al hacer scroll */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .research-slider-wrap::-webkit-scrollbar {
+            display: none;
+        }
+
+        .research-slider {
+            display: flex;
+            gap: 3rem;
+            width: min(900px, 100vw);
+            padding: 0 2rem 2rem 10rem; /* Extra padding para centrar el primer card */
+        }
+
+        .research-card {
+            flex: 0 0 calc(50% - 1.5rem);
+            scroll-snap-align: start;
+            padding: 2.5rem;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background-color: transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .research-slider::after {
+            content: "";
+            flex: 0 0 10rem; /* <-- ESTE ES EL ESPACIO INVISIBLE. */
+        }
+
+        .research-card h4 {
+            margin-bottom: 1rem;
+        }
+
+        .research-card p {
+            margin-bottom: 1rem;
+        }
+
+        .research-card p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        @media (hover: hover) {
+            .research-card:hover {
+                border-color: var(--accent);
+            }
+        }
+
+        .research-slider-nav {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .slider-arrow {
+            width: 48px;
+            height: 48px;
+            border: 1px solid #333;
+            border-radius: 50%;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .slider-arrow:hover {
+                border-color: var(--accent);
+                color: var(--accent);
+            }
+        }
+
+        .slider-arrow:disabled {
+            opacity: 0.25;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .slider-counter {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-left: 1rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* --- HEADER & NAVEGACIÓN (Desktop) --- */
+        header {
+            height: 90vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            position: relative; 
+            padding-top: 5rem; 
+        }
+
+        .top-nav {
+            position: absolute;
+            top: 2rem;
+            right: 10rem; 
+            display: flex;
+            gap: 2rem;
+            z-index: 10;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .nav-link:hover {
+                color: var(--accent);
+            }
+        }
+
+        /* --- ESTILOS MENÚ HAMBURGUESA (Móvil) --- */
+        .hamburger {
+            display: none; 
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            z-index: 2000;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            margin: 5px 0;
+            background-color: var(--text-main);
+            transition: 0.4s;
+        }
+
+        /* --- NUEVO: ANIMACIÓN HAMBURGUESA A "X" --- */
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Menú desplegable móvil (Overlay) */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 20, 20, 0.98);
+            z-index: 1500;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 8rem; 
+            padding-left: 3rem; 
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none; 
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            font-family: var(--font-sans);
+            font-size: 1.2rem; 
+            font-weight: 500;
+            color: var(--text-main);
+            text-transform: none;
+        }
+
+        /* --- MEDIA QUERY MÓVIL (Ajustes Críticos) --- */
+        @media (max-width: 768px) {
+            header { 
+                justify-content: flex-start; 
+                padding-top: 12vh; 
+                height: auto; 
+                min-height: auto; 
+                padding-bottom: 2rem; 
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .top-nav { display: none; } 
+            .hamburger { display: block; }
+
+            h1 { font-size: 3rem; margin-top: 0; margin-bottom: 0.5rem; }
+            h2 { font-size: 1.3rem; }
+            
+            #wave-container {
+                height: 150px !important; 
+                /* AJUSTE 1: Bajar más la onda (más margen arriba) */
+                margin-top: 5rem; 
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                gap: 0.1rem; 
+                align-items: flex-start;
+                /* AJUSTE 2: Subir más los botones (más margen negativo) */
+                margin-top: -4rem; 
+            }
+
+            .btn-hero-reel {
+                order: 1; 
+                width: 100%; 
+                justify-content: center;
+                margin-bottom: -0.9rem;
+            }
+            
+            .link-scroll {
+                order: 2; 
+                align-self: center; 
+            }
+
+            .project-img-container {
+                height: auto !important; 
+                aspect-ratio: 16/9; 
+            }
+
+            .project-img {
+                height: auto; 
+            }
+
+            .project-img-container::after {
+                display: none;
+            }
+
+            .btn-studio {
+                color: var(--text-main) !important;
+                border-bottom: 1px solid var(--text-main) !important;
+                padding-bottom: 2px; 
+            }
+
+            @media (hover: hover) {
+                .btn-studio:hover {
+                    color: var(--accent) !important;
+                    border-bottom-color: var(--accent) !important;
+                }
+            }
+
+            .research-slider-wrap {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100vw !important;
+                scroll-padding-left: 1.5rem !important;
+            }
+
+            .research-slider {
+                padding: 0 1.5rem 2rem 1.5rem !important;
+                gap: 1rem !important;
+                width: 100% !important;
+            }
+
+            .research-card {
+                box-sizing: border-box !important;
+                flex: 0 0 calc(100vw - 3rem) !important;
+                width: calc(100vw - 3rem) !important;
+                scroll-snap-align: start !important;
+            }
+
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            .research-slider-nav {
+                justify-content: center !important;
+            }
+
+            .footer-legal {
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: flex-end;
+                text-align: right;
+                gap: 0.5rem;
+            }
+        }
+
+        /* --- ANIMACIÓN ONDA --- */
+        #wave-container {
+            width: 100%;
+            height: 180px; 
+            margin-top: 1rem; 
+            margin-bottom: 0;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 4V20M4 12H20' stroke='%23D9052E' stroke-width='1.5'/%3E%3C/svg%3E") 12 12, crosshair;
+        }
+        
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- ACCIONES DEL HERO --- */
+        .hero-actions {
+            margin-top: 4rem; 
+            display: flex;
+            align-items: center; 
+            gap: 3rem; 
+        }
+
+        .link-scroll {
+            border-bottom: 1px solid var(--text-main); 
+            padding-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .btn-hero-reel {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 28px;
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 4px;
+            transition: transform 0.2s ease, background-color 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        @media (hover: hover) {
+            .btn-hero-reel:hover {
+                background-color: var(--accent);
+                color: white;
+                transform: translateY(-2px);
+            }
+        }
+
+        /* --- VENTANA MODAL --- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 3000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            background-color: #000;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #f1f1f1;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            line-height: 1;
+        }
+
+        @media (hover: hover) {
+            .close-modal:hover {
+                color: var(--accent);
+            }
+        }
+
+        /* --- PROYECTOS --- */
+        .project-img-container {
+            width: 100%;
+            height: 400px; 
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            background-color: #222;
+            border-radius: 2px;
+            position: relative; 
+            transform: translateZ(0);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .project-img-container::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0, 0.5);
+            transition: opacity 0.4s ease-out;
+            pointer-events: none;
+        }
+
+        article { cursor: pointer; } 
+        @media (hover: hover) {
+            article:hover .project-img { transform: scale(1.03); }
+            article:hover .project-img-container::after { opacity: 0; }
+        }
+
+        /* --- FOOTER ACTIONS --- */
+        .works-footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .btn-studio {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+        }
+
+        @media (hover: hover) {
+            .btn-studio:hover {
+                color: var(--accent);
+                border-bottom-color: var(--accent);
+            }
+        }
+
+        /* --- LINK POLIGONO HOVER --- */
+        .link-poligono {
+            color: var(--text-main);
+            border-bottom: 1px solid var(--text-muted);
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .link-poligono:hover {
+                color: var(--accent);
+                border-color: var(--accent);
+            }
+        }
+
+        /* --- BOTONES RESEARCH --- */
+        .research-btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-research-primary {
+            font-size: 0.85rem;
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid var(--text-main);
+            transition: 0.2s;
+        }
+
+        @media (hover: hover) {
+            .btn-research-primary:hover {
+                background-color: var(--accent);
+                border-color: var(--accent);
+                color: white;
+            }
+        }
+
+        .btn-research-outline {
+            font-size: 0.85rem;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: 0.2s;
+        }
+
+        @media (hover: hover) {
+            .btn-research-outline:hover {
+                border-color: var(--text-main);
+                color: var(--text-main);
+            }
+        }
+
+        .link-source {
+            transition: color 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .link-source:hover {
+                color: var(--accent) !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="https://poligonostudio.com" target="_blank" data-i18n="nav_studio">Polígono Studio ↗</a>
+        <a href="mailto:danielesdosa@gmail.com" data-i18n="nav_contact">Contacto</a>
+        <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" data-i18n="nav_linkedin">LinkedIn</a>
+        <a href="#" id="langToggleMobile" class="nav-link" style="color: var(--accent); display: inline-flex; align-items: center; gap: 4px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span class="lang-text">EN</span>
+        </a>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <header>
+        <nav class="top-nav">
+            <a href="https://poligonostudio.com" target="_blank" class="nav-link" data-i18n="nav_studio">Polígono Studio ↗</a>
+            <a href="mailto:danielesdosa@gmail.com" class="nav-link" data-i18n="nav_contact">Contacto</a>
+            <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" class="nav-link" data-i18n="nav_linkedin">LinkedIn</a>
+            <a href="#" id="langToggleDesktop" class="nav-link" style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span class="lang-text">EN</span>
+            </a>
+        </nav>
+
+        <div class="container">
+            <p style="color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;" data-i18n="hero_label">Portafolio / Investigación</p>
+
+            <h1 data-i18n="hero_name">Daniel Domínguez</h1>
+
+            <h2>
+                <span data-i18n="hero_title">Artista Sonoro, Investigador de Audio</span>
+                <span class="hero-subtitle" data-i18n="hero_subtitle">IA & Creatividad Computacional</span>
+            </h2>
+
+            <div id="wave-container">
+                <canvas id="waveCanvas"></canvas>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#works" class="link-scroll" data-i18n="hero_scroll">Ver Proyectos Seleccionados ↓</a>
+
+                <button id="openModalBtn" class="btn-hero-reel">
+                    <span style="margin-right: 8px;">▶</span> <span data-i18n="hero_showreel">Showreel</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <iframe id="vimeoPlayer" src="https://player.vimeo.com/video/1055079033?color=D9052E&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <section id="works">
+        <div class="container">
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;" data-i18n="works_heading">01 — Trabajos Seleccionados</h3>
+
+            <article style="margin-bottom: 4rem;">
+                <a href="https://youtu.be/oMU26v3PcSc?si=ZPM9oW0tCYbLoDha" target="_blank" style="display: block;">
+                    <div class="project-img-container">
+                        <img src="../assets/img/caretaker.jpg" alt="caretaker" class="project-img">
+                    </div>
+                    <h4 style="font-size: 1.8rem; margin: 0;" data-i18n="project1_title">Caretaker</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;" data-i18n="project1_role">Rol: Re-recording mixer / Lead Sound Designer</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project1_prod">Prod: Light & Noise</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project1_dir">Dir: Veronica Wood</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="link-poligono" data-i18n="project1_cta" style="font-size: 0.9rem; font-weight: 500;">Ver Cortometraje ↗</span>
+                    </div>
+                </a>
+            </article>
+
+            <article style="margin-bottom: 4rem;">
+                <a href="https://www.waterbear.com/watch/feed-the-future" target="_blank" style="display: block;">
+                    <div class="project-img-container">
+                        <img src="../assets/img/resilience.jpg" alt="resilience" class="project-img">
+                    </div>
+                    <h4 style="font-size: 1.8rem; margin: 0;" data-i18n="project2_title">The Art of Resilience: Episode 2</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;" data-i18n="project2_role">Rol: Captación de sonido directo</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project2_prod">Prod: Waterbear</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project2_dir">Dir: Federico Urdaneta</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="link-poligono" data-i18n="project2_cta" style="font-size: 0.9rem; font-weight: 500;">Ver Episodio ↗</span>
+                    </div>
+                </a>
+            </article>
+
+            <article style="margin-bottom: 4rem;">
+                <a href="https://www.primevideo.com/-/es/detail/Misfit-Eres-o-te-haces/0MFIH6C6CKIOFG63XO6BJJVHNY" target="_blank" style="display: block;">
+                    <div class="project-img-container">
+                        <img src="../assets/img/misfit.jpg" alt="misfit" class="project-img">
+                    </div>
+                    <h4 style="font-size: 1.8rem; margin: 0;" data-i18n="project3_title">Misfit # Eres O Te Haces</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;" data-i18n="project3_role">Rol: SFX Editor</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project3_prod">Prod: 2btube</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.4;" data-i18n="project3_dir">Dir: Orlando Herrera</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="link-poligono" data-i18n="project3_cta" style="font-size: 0.9rem; font-weight: 500;">Ver en Prime Video ↗</span>
+                    </div>
+                </a>
+            </article>
+
+            <div class="works-footer">
+                <a href="https://poligonostudio.com/portafolio" target="_blank" class="btn-studio" data-i18n="works_footer_link">
+                    Ver portafolio seleccionado completo ↗
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" style="background-color: #1a1a1a; overflow: hidden;">
+        <div class="container">
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3rem;" data-i18n="research_heading">02 — Research Lab</h3>
+        </div>
+
+        <div class="research-slider-wrap" id="researchSlider">
+        <div class="research-slider">
+
+            <article class="research-card">
+                <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research1_title">Polígono Splitter</h4>
+                <p style="color: #ccc; font-weight: 300;" data-i18n="research1_desc">
+                    Herramienta de separación de fuentes sonoras basada en Deep Learning. Implementación de redes neuronales para optimización de flujos de trabajo en post-producción.
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research1_tech">Tech Stack: Python, Electron, PyTorch.</p>
+                <div class="research-btn-group">
+                    <a href="https://poligonostudio.com/productos/poligono-splitter/" target="_blank" class="btn-research-primary" data-i18n="research1_btn_primary">
+                        Descarga la App ↓
+                    </a>
+                    <a href="https://github.com/danielesdosa94/poligono-demixer" target="_blank" class="btn-research-outline" data-i18n="research1_btn_secondary">
+                        GitHub Repo ↗
+                    </a>
+                </div>
+            </article>
+
+            <article class="research-card">
+                <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research2_title">Diseñando Sonido In The Box</h4>
+                <p style="color: #ccc; font-weight: 300;" data-i18n="research2_desc">
+                    Libro especializado que sistematiza metodologías para el diseño sonoro cinematográfico. Una investigación sobre la optimización técnica y creativa en flujos de trabajo puramente digitales.
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research2_status">Status: En edición / Publicación 2026.</p>
+            </article>
+
+            <article class="research-card">
+                <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research3_title">Neuro Audio Lab</h4>
+                <p style="color: #ccc; font-weight: 300;" data-i18n="research3_desc">
+                    Entorno psicoacústico web para la gestión de estados mentales. Generación procedimental de paisajes sonoros adaptativos para Foco, Sueño y Ansiedad.
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research3_tech">Tech Stack: Web Audio API, JavaScript, Canvas.</p>
+                <div class="research-btn-group">
+                    <a href="https://lab.poligonostudio.com" target="_blank" class="btn-research-primary" data-i18n="research3_btn_primary">
+                        Visitar Beta ↗
+                    </a>
+                </div>
+            </article>
+
+            <article class="research-card">
+                <h4 style="font-size: 1.5rem; margin-top: 0;" data-i18n="research4_title">Polígono AI Hub</h4>
+                <p style="color: #ccc; font-weight: 300;" data-i18n="research4_desc">
+                    Suite de escritorio para procesamiento de audio mediante IA. Unifica herramientas de separación de stems (Demucs/PyTorch) y eliminación vocal con aceleración por GPU.
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="research4_tech">Tech Stack: Electron, Python, PyTorch, CUDA.</p>
+                <div class="research-btn-group">
+                    <a href="https://github.com/danielesdosa94/poligono-vocal-remover" target="_blank" class="btn-research-outline" data-i18n="research4_btn_secondary">
+                        GitHub Repo ↗
+                    </a>
+                </div>
+            </article>
+
+        </div>
+        </div>
+
+        <div class="container">
+            <div class="research-slider-nav">
+                <button class="slider-arrow" id="sliderPrev" aria-label="Previous">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="slider-arrow" id="sliderNext" aria-label="Next">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2rem;" data-i18n="about_heading">03 — Acerca de mi</h3>
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <div style="max-width: 750px; margin: 0;">
+                    <p style="font-size: 1.1rem; font-family: var(--font-serif); margin: 0 0 1.5rem 0; line-height: 1.8;" data-i18n="about_bio_p1">
+                        Con más de una década de experiencia creando narrativas sonoras para cine, publicidad y medios digitales, mi práctica profesional se fundamenta en la precisión técnica y la sensibilidad artística.
+                    </p>
+                    <p style="font-size: 1.1rem; font-family: var(--font-serif); margin: 0; line-height: 1.8;" data-i18n="about_bio_p2">
+                        En el ámbito académico, compagino la industria con la docencia, formando a nuevas generaciones en Diseño Sonoro. Actualmente, mi investigación se sitúa en la intersección del audio y la tecnología, explorando cómo la Inteligencia Artificial está redefiniendo los límites de la creación y la postproducción audiovisual.
+                    </p>
+                </div>
+                <div style="border-left: 1px solid var(--accent); padding-left: 1.5rem; margin-top: 1rem;">
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 1px;" data-i18n="about_current_role_label">Rol Actual</p>
+                    <p style="font-size: 1.1rem; margin: 0;" data-i18n-html="about_current_role">
+                        Fundador y Director en:
+                        <br>
+                        <a href="https://poligonostudio.com" target="_blank" class="link-poligono">
+                            Polígono Studio ↗
+                        </a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Bloque de Enlaces -->
+            <div class="footer-links" style="margin-top: 5rem; border-top: 1px solid #333; padding-top: 2rem; display: flex; flex-wrap: wrap; gap: 2rem; font-size: 0.9rem;">
+                <a href="mailto:danielesdosa@gmail.com" data-i18n="footer_email">Email</a>
+                <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" data-i18n="footer_linkedin">LinkedIn</a>
+                <a href="https://github.com/danielesdosa94" target="_blank" data-i18n="footer_github">GitHub</a>
+                <a href="https://poligonostudio.com" target="_blank" data-i18n="footer_studio">Polígono Studio</a>
+                <a href="#" id="langToggleFooter" style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span class="lang-text">EN</span>
+                </a>
+            </div>
+
+            <!-- Bloque Legal -->
+            <div class="footer-legal" style="margin-top: 4rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: 0.8rem;">
+                <span style="color: #444;" data-i18n="footer_copyright">© 2026 Daniel Domínguez</span>
+                <a href="https://github.com/danielesdosa94/danieldominguez-audio-web" target="_blank" class="link-source" style="color: #333;" data-i18n="footer_source">Source Code of this site</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let time = 0;
+
+        // --- MOTOR DE AUDIO ---
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
+        let audioBuffer = null;
+        let activeSource = null;
+        let activeGain = null;
+
+        document.addEventListener('click', function() {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }, { once: true });
+
+        async function loadSound() {
+            try {
+                const response = await fetch('../assets/audio/poligono_sonido.mp3');
+                if (!response.ok) throw new Error("No se encontró el archivo de audio");
+                const arrayBuffer = await response.arrayBuffer();
+                audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+            } catch (error) {
+                console.warn("Error cargando audio:", error);
+            }
+        }
+        loadSound();
+
+        const triggerSound = () => {
+            if (!audioBuffer) return;
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            const now = audioCtx.currentTime;
+
+            if (activeSource && activeGain) {
+                activeGain.gain.cancelScheduledValues(now);
+                activeGain.gain.setValueAtTime(activeGain.gain.value, now);
+                activeGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05); 
+                activeSource.stop(now + 0.05);
+            }
+
+            const source = audioCtx.createBufferSource();
+            source.buffer = audioBuffer;
+            source.playbackRate.value = 0.95 + Math.random() * 0.10;
+
+            const gainNode = audioCtx.createGain();
+            gainNode.gain.setValueAtTime(0, now);
+            gainNode.gain.linearRampToValueAtTime(0.5, now + 0.01); 
+
+            source.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            source.start(now);
+
+            activeSource = source;
+            activeGain = gainNode;
+        };
+
+        const container = document.getElementById('wave-container');
+        container.addEventListener('mouseenter', triggerSound);
+        container.addEventListener('click', triggerSound);
+
+        // --- LÓGICA DEL MENÚ HAMBURGUESA (MÓVIL) ---
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        // Abrir/Cerrar menú
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburgerBtn.classList.toggle('open'); 
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                hamburgerBtn.classList.remove('open');
+            });
+        });
+
+        // --- MODAL VIDEO ---
+        const modal = document.getElementById("videoModal");
+        const btn = document.getElementById("openModalBtn");
+        const span = document.getElementsByClassName("close-modal")[0];
+        const iframe = document.getElementById("vimeoPlayer");
+        const videoSrc = iframe.src;
+
+        btn.onclick = function() {
+            modal.style.display = "flex";
+            iframe.src = videoSrc + "&autoplay=1";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+            iframe.src = ""; 
+            setTimeout(() => { iframe.src = videoSrc; }, 200); 
+        }
+
+        span.onclick = function() { closeModal(); }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // --- ANIMACIÓN ONDA ---
+        function resize() {
+            width = container.clientWidth;
+            height = container.clientHeight;
+            canvas.width = width * 2; 
+            canvas.height = height * 2;
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+            ctx.scale(2, 2);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        function drawWave(color, speed, amplitude, frequency, yOffset) {
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1.5;
+
+            for (let x = 0; x < width; x++) {
+                let y = Math.sin(x * frequency + time * speed) * amplitude;
+                y += Math.sin(x * frequency * 2 + time * speed * 1.5) * (amplitude / 2);
+                y += Math.sin(x * frequency * 0.5 + time * speed * 0.5) * (amplitude / 2);
+                
+                ctx.lineTo(x, height / 2 + y + yOffset);
+            }
+            ctx.stroke();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            drawWave('#333333', 0.02, 40, 0.01, 0);
+            drawWave('#D9052E', 0.03, 25, 0.015, 0);
+            time += 1;
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // --- RESEARCH SLIDER ---
+        const slider = document.getElementById('researchSlider');
+        const prevBtn = document.getElementById('sliderPrev');
+        const nextBtn = document.getElementById('sliderNext');
+        const cards = slider.querySelectorAll('.research-card');
+
+        function getScrollStep() {
+            // Leer el gap del contenedor flex interno, no del wrapper
+            const innerSlider = slider.querySelector('.research-slider');
+            const gap = parseFloat(getComputedStyle(innerSlider).gap) || 0;
+            return cards[0].offsetWidth + gap;
+        }
+
+        function updateSliderState() {
+            const scrollLeft = slider.scrollLeft;
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+            prevBtn.disabled = scrollLeft <= 2;
+            nextBtn.disabled = scrollLeft >= maxScroll - 2;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            const step = getScrollStep();
+            const currentIndex = Math.round(slider.scrollLeft / step);
+            slider.scrollTo({ left: (currentIndex - 1) * step, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const step = getScrollStep();
+            const currentIndex = Math.round(slider.scrollLeft / step);
+            slider.scrollTo({ left: (currentIndex + 1) * step, behavior: 'smooth' });
+        });
+
+        slider.addEventListener('scroll', updateSliderState);
+        updateSliderState();
+    </script>
+
+    <script>
+        // ============================================
+        // i18n — TRANSLATIONS & LANGUAGE ENGINE
+        // ============================================
+        const translations = {
+            es: {
+                // Meta
+                meta_description: "Daniel Domínguez | Investigador de Audio & Artista Sonoro. Explorando la intersección entre el paisaje sonoro y la Inteligencia Artificial.",
+
+                // Navigation
+                nav_studio: "Polígono Studio ↗",
+                nav_contact: "Contacto",
+                nav_linkedin: "LinkedIn",
+
+                // Hero Section
+                hero_label: "Portafolio / Investigación",
+                hero_name: "Daniel Domínguez",
+                hero_title: "Artista Sonoro, Investigador de Audio",
+                hero_subtitle: "IA & Creatividad Computacional",
+                hero_scroll: "Ver Proyectos Seleccionados ↓",
+                hero_showreel: "Showreel",
+
+                // Works Section
+                works_heading: "01 — Trabajos Seleccionados",
+
+                // Project 1: Caretaker
+                project1_title: "Caretaker",
+                project1_role: "Rol: Re-recording mixer / Lead Sound Designer",
+                project1_prod: "Prod: Light & Noise",
+                project1_dir: "Dir: Veronica Wood",
+
+                // Project 2: Resilience
+                project2_title: "The Art of Resilience: Episode 2",
+                project2_role: "Rol: Captación de sonido directo",
+                project2_prod: "Prod: Waterbear",
+                project2_dir: "Dir: Federico Urdaneta",
+
+                // Project 3: Misfit
+                project3_title: "Misfit # Eres O Te Haces",
+                project3_role: "Rol: SFX Editor",
+                project3_prod: "Prod: 2btube",
+                project3_dir: "Dir: Orlando Herrera",
+                project1_cta: "Ver Cortometraje ↗",
+                project2_cta: "Ver Episodio ↗",
+                project3_cta: "Ver en Prime Video ↗",
+
+                works_footer_link: "Ver portafolio seleccionado completo ↗",
+
+                // Research Section
+                research_heading: "02 — Research Lab",
+
+                research1_title: "Polígono Splitter",
+                research1_desc: "Herramienta de separación de fuentes sonoras basada en Deep Learning. Implementación de redes neuronales para optimización de flujos de trabajo en post-producción.",
+                research1_tech: "Tech Stack: Python, Electron, PyTorch.",
+                research1_btn_primary: "Descarga la App ↓",
+                research1_btn_secondary: "GitHub Repo ↗",
+
+                research2_title: "Diseñando Sonido In The Box",
+                research2_desc: "Libro especializado que sistematiza metodologías para el diseño sonoro cinematográfico. Una investigación sobre la optimización técnica y creativa en flujos de trabajo puramente digitales.",
+                research2_status: "Status: En edición / Publicación 2026.",
+
+                research3_title: "Neuro Audio Lab",
+                research3_desc: "Entorno psicoacústico web para la gestión de estados mentales. Generación procedimental de paisajes sonoros adaptativos para Foco, Sueño y Ansiedad.",
+                research3_tech: "Tech Stack: Web Audio API, JavaScript, Canvas.",
+                research3_btn_primary: "Visitar Beta ↗",
+
+                research4_title: "Polígono AI Hub",
+                research4_desc: "Suite de escritorio para procesamiento de audio mediante IA. Unifica herramientas de separación de stems (Demucs/PyTorch) y eliminación vocal con aceleración por GPU.",
+                research4_tech: "Tech Stack: Electron, Python, PyTorch, CUDA.",
+                research4_btn_secondary: "GitHub Repo ↗",
+
+                // About Section
+                about_heading: "03 — Acerca de mi",
+                about_bio_p1: "Con más de una década de experiencia creando narrativas sonoras para cine, publicidad y medios digitales, mi práctica profesional se fundamenta en la precisión técnica y la sensibilidad artística.",
+                about_bio_p2: "En el ámbito académico, compagino la industria con la docencia, formando a nuevas generaciones en Diseño Sonoro. Actualmente, mi investigación se sitúa en la intersección del audio y la tecnología, explorando cómo la Inteligencia Artificial está redefiniendo los límites de la creación y la postproducción audiovisual.",
+                about_current_role_label: "Rol Actual",
+                about_current_role: 'Fundador y Director en:<br><a href="https://poligonostudio.com" target="_blank" class="link-poligono">Polígono Studio ↗</a>',
+
+                // Footer
+                footer_email: "Email",
+                footer_linkedin: "LinkedIn",
+                footer_github: "GitHub",
+                footer_studio: "Polígono Studio",
+                footer_copyright: "© 2026 Daniel Domínguez",
+                footer_source: "Código Fuente de este sitio"
+            },
+
+            en: {
+                // Meta
+                meta_description: "Daniel Domínguez | Audio Researcher & Sound Artist. Exploring the intersection of soundscape and Artificial Intelligence.",
+
+                // Navigation
+                nav_studio: "Polígono Studio ↗",
+                nav_contact: "Contact",
+                nav_linkedin: "LinkedIn",
+
+                // Hero Section
+                hero_label: "Portfolio / Research",
+                hero_name: "Daniel Domínguez",
+                hero_title: "Sound Artist, Audio Researcher",
+                hero_subtitle: "AI & Computational Creativity",
+                hero_scroll: "View Selected Projects ↓",
+                hero_showreel: "Showreel",
+
+                // Works Section
+                works_heading: "01 — Selected Works",
+
+                // Project 1: Caretaker
+                project1_title: "Caretaker",
+                project1_role: "Role: Re-recording Mixer / Lead Sound Designer",
+                project1_prod: "Prod: Light & Noise",
+                project1_dir: "Dir: Veronica Wood",
+
+                // Project 2: Resilience
+                project2_title: "The Art of Resilience: Episode 2",
+                project2_role: "Role: Production Sound Mixer",
+                project2_prod: "Prod: Waterbear",
+                project2_dir: "Dir: Federico Urdaneta",
+
+                // Project 3: Misfit
+                project3_title: "Misfit # Eres O Te Haces",
+                project3_role: "Role: SFX Editor",
+                project3_prod: "Prod: 2btube",
+                project3_dir: "Dir: Orlando Herrera",
+                project1_cta: "Watch Shortfilm ↗",
+                project2_cta: "Watch Episode ↗",
+                project3_cta: "View on Prime Video ↗",
+
+                works_footer_link: "View full curated portfolio ↗",
+
+                // Research Section
+                research_heading: "02 — Research Lab",
+
+                research1_title: "Polígono Splitter",
+                research1_desc: "Deep Learning-based audio source separation tool. Neural network implementation for workflow optimization in post-production environments.",
+                research1_tech: "Tech Stack: Python, Electron, PyTorch.",
+                research1_btn_primary: "Download App ↓",
+                research1_btn_secondary: "GitHub Repo ↗",
+
+                research2_title: "Designing Sound In The Box",
+                research2_desc: "Specialized publication systematizing methodologies for cinematic sound design. A research exploration on technical and creative optimization in fully digital workflows.",
+                research2_status: "Status: Under editing / Release 2026.",
+
+                research3_title: "Neuro Audio Lab",
+                research3_desc: "Psychoacoustic web environment for mental state management. Procedural generation of adaptive soundscapes for Focus, Sleep, and Anxiety relief.",
+                research3_tech: "Tech Stack: Web Audio API, JavaScript, Canvas.",
+                research3_btn_primary: "Visit Beta ↗",
+
+                research4_title: "Polígono AI Hub",
+                research4_desc: "Desktop suite for AI-powered audio processing. Unifies stem separation tools (Demucs/PyTorch) and vocal removal with GPU acceleration.",
+                research4_tech: "Tech Stack: Electron, Python, PyTorch, CUDA.",
+                research4_btn_secondary: "GitHub Repo ↗",
+
+                // About Section
+                about_heading: "03 — About Me",
+                about_bio_p1: "With over a decade of experience crafting sonic narratives for film, advertising, and digital media, my professional practice is grounded in technical precision and artistic sensitivity.",
+                about_bio_p2: "In the academic realm, I balance industry work with teaching, training new generations in Sound Design. Currently, my research sits at the intersection of audio and technology, exploring how Artificial Intelligence is redefining the boundaries of creation and audiovisual post-production.",
+                about_current_role_label: "Current Role",
+                about_current_role: 'Founder & Director at:<br><a href="https://poligonostudio.com" target="_blank" class="link-poligono">Polígono Studio ↗</a>',
+
+                // Footer
+                footer_email: "Email",
+                footer_linkedin: "LinkedIn",
+                footer_github: "GitHub",
+                footer_studio: "Polígono Studio",
+                footer_copyright: "© 2026 Daniel Domínguez",
+                footer_source: "Source Code of this site"
+            }
+        };
+
+        // ============================================
+        // LANGUAGE ENGINE
+        // ============================================
+        let currentLang = 'es';
+
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+
+            currentLang = lang;
+
+            // Update <html lang="">
+            document.documentElement.lang = lang;
+
+            // Update meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', t.meta_description);
+
+            // Update all data-i18n elements (textContent)
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key] !== undefined) {
+                    el.textContent = t[key];
+                }
+            });
+
+            // Update all data-i18n-html elements (innerHTML — for elements with nested HTML)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (t[key] !== undefined) {
+                    el.innerHTML = t[key];
+                }
+            });
+
+            // Update language toggle buttons (preserving SVG icons)
+            const nextLang = lang === 'es' ? 'EN' : 'ES';
+            document.querySelectorAll('#langToggleDesktop .lang-text, #langToggleMobile .lang-text, #langToggleFooter .lang-text').forEach(el => {
+                if (el) el.textContent = nextLang;
+            });
+
+            // Persist selection
+            localStorage.setItem('site-lang', lang);
+        }
+
+        // Toggle handler
+        function toggleLanguage(e) {
+            e.preventDefault();
+            changeLanguage(currentLang === 'es' ? 'en' : 'es');
+        }
+
+        document.getElementById('langToggleDesktop').addEventListener('click', toggleLanguage);
+        document.getElementById('langToggleMobile').addEventListener('click', toggleLanguage);
+        const footerToggle = document.getElementById('langToggleFooter');
+        if (footerToggle) footerToggle.addEventListener('click', toggleLanguage);
+
+        // ============================================
+        // INIT: Detect saved or browser language
+        // ============================================
+        (function initLanguage() {
+            const saved = localStorage.getItem('site-lang');
+            if (saved && translations[saved]) {
+                changeLanguage(saved);
+                return;
+            }
+
+            const browserLang = (navigator.language || navigator.userLanguage || 'es').slice(0, 2);
+            changeLanguage(browserLang === 'en' ? 'en' : 'es');
+        })();
+    </script>
+
+</body>
+</html>
