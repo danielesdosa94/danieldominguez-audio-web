@@ -614,9 +614,9 @@
         <a href="https://poligonostudio.com" target="_blank" data-i18n="nav_studio">Polígono Studio ↗</a>
         <a href="mailto:danielesdosa@gmail.com" data-i18n="nav_contact">Contacto</a>
         <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" data-i18n="nav_linkedin">LinkedIn</a>
-        <a href="#" id="langToggleMobile" class="nav-link" style="color: var(--accent); display: inline-flex; align-items: center; gap: 4px;">
+        <a href="/" id="langToggleMobile" class="nav-link" style="color: var(--accent); display: inline-flex; align-items: center; gap: 4px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            <span class="lang-text">EN</span>
+            <span class="lang-text">ES</span>
         </a>
     </div>
 
@@ -631,9 +631,9 @@
             <a href="https://poligonostudio.com" target="_blank" class="nav-link" data-i18n="nav_studio">Polígono Studio ↗</a>
             <a href="mailto:danielesdosa@gmail.com" class="nav-link" data-i18n="nav_contact">Contacto</a>
             <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" class="nav-link" data-i18n="nav_linkedin">LinkedIn</a>
-            <a href="#" id="langToggleDesktop" class="nav-link" style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+            <a href="/" id="langToggleDesktop" class="nav-link" style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                <span class="lang-text">EN</span>
+                <span class="lang-text">ES</span>
             </a>
         </nav>
 
@@ -828,9 +828,9 @@
                 <a href="https://www.linkedin.com/in/daniel-dominguez-ec/" target="_blank" data-i18n="footer_linkedin">LinkedIn</a>
                 <a href="https://github.com/danielesdosa94" target="_blank" data-i18n="footer_github">GitHub</a>
                 <a href="https://poligonostudio.com" target="_blank" data-i18n="footer_studio">Polígono Studio</a>
-                <a href="#" id="langToggleFooter" style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+                <a href="/" id="langToggleFooter" style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    <span class="lang-text">EN</span>
+                    <span class="lang-text">ES</span>
                 </a>
             </div>
 
@@ -1241,16 +1241,6 @@
             localStorage.setItem('site-lang', lang);
         }
 
-        // Toggle handler
-        function toggleLanguage(e) {
-            e.preventDefault();
-            changeLanguage(currentLang === 'es' ? 'en' : 'es');
-        }
-
-        document.getElementById('langToggleDesktop').addEventListener('click', toggleLanguage);
-        document.getElementById('langToggleMobile').addEventListener('click', toggleLanguage);
-        const footerToggle = document.getElementById('langToggleFooter');
-        if (footerToggle) footerToggle.addEventListener('click', toggleLanguage);
 
         // ============================================
         // INIT: Detect saved or browser language
